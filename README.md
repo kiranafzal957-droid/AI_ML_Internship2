@@ -1,59 +1,60 @@
-#  Task 5 – Auto-Tagging Support Tickets Using LLM
+#  AI/ML Engineering Internship – DevelopersHub
 
-##  Objective  
-Automatically classify customer support tickets into categories using a **Large Language Model (LLM)**.  
-
----
-
-##  Dataset  
-- **Source:** Customer Support Ticket Dataset (CSV file extracted from Kaggle ZIP)  
-- **Columns:**  
-  - `ticket_id` → Unique ID of ticket  
-  - `text` → Free-text support ticket description  
-  - `category` → True category label (for evaluation)  
+This repository contains the completed tasks for my **AI/ML Engineering Internship at DevelopersHub Corporation (Aug 2025)**.  
+The internship focused on building **end-to-end AI/ML solutions** using transformers, scikit-learn, pipelines, and large language models (LLMs).  
 
 ---
 
-##  Methodology
+##  Completed Tasks
+I successfully implemented **3 out of 5 advanced tasks**:  
 
-1. **Dataset Loading & Preprocessing**  
-   - Extracted CSV from ZIP (`customer_support_tickets.csv`)  
-   - Saved as `support_tickets.csv` for reuse  
-   - Removed null/empty entries  
-
-2. **Model Development**  
-   - Used Hugging Face `facebook/bart-large-mnli` for **Zero-Shot Classification**  
-   - Candidate labels: *Technical Issue, Billing, Authentication, General Inquiry*  
-   - Generated **Top 3 most probable tags** per ticket  
-
-3. **Few-Shot Learning (Optional)**  
-   - Tested with prompt-based classification using `flan-t5-small`  
-
-4. **Evaluation**  
-   - Compared **predicted top label** with ground truth `category`  
-   - Metrics: **Accuracy** and **Weighted F1-score**  
-
-5. **Output**  
-   - Predictions saved as `ticket_predictions.csv`  
+1. **Task 1: News Topic Classifier Using BERT**  
+2. **Task 2: End-to-End ML Pipeline with Scikit-learn**  
+3. **Task 5: Auto-Tagging Support Tickets Using LLM**  
 
 ---
 
-##  Results  
+##  Task Details
 
-- **Zero-Shot Performance (BART MNLI):**  
-  - Accuracy: ~XX%  
-  - F1-score: ~XX%  
-  *(Replace XX with your actual run results)*  
+###  Task 1: News Topic Classifier Using BERT
+**Objective:** Fine-tune a transformer model (BERT) to classify news headlines into categories.  
 
-- **Few-Shot Performance (FLAN-T5):**  
-  - Showed improved contextual understanding on smaller samples  
+**Approach:**  
+- Used Hugging Face Transformers (`bert-base-uncased`)  
+- Tokenized & preprocessed AG News dataset  
+- Fine-tuned using PyTorch/Transformers Trainer API  
+- Evaluated with **Accuracy & F1-score**  
+- Deployed with **Gradio** for live text classification  
+
+**Skills Gained:** NLP with Transformers, Transfer Learning, Model Deployment  
 
 ---
 
-##  Skills Gained  
-- Prompt Engineering  
-- Zero-Shot & Few-Shot Learning with LLMs  
-- Text Classification & Multi-class Prediction  
-- Using Hugging Face Pipelines  
+###  Task 2: End-to-End ML Pipeline with Scikit-learn
+**Objective:** Build a production-ready pipeline for predicting customer churn.  
 
+**Approach:**  
+- Used **Telco Churn Dataset**  
+- Preprocessing (scaling, encoding) with `Pipeline` API  
+- Trained **Logistic Regression & Random Forest** models  
+- Applied **GridSearchCV** for hyperparameter tuning  
+- Exported complete pipeline with `joblib`  
+
+**Skills Gained:** ML Pipelines, Model Optimization, Reusability  
+
+---
+
+###  Task 5: Auto-Tagging Support Tickets Using LLM
+**Objective:** Automatically classify support tickets into categories using an LLM.  
+
+**Approach:**  
+- Dataset: **Customer Support Tickets (Kaggle)**  
+- Applied **Zero-Shot Classification** using `facebook/bart-large-mnli`  
+- Candidate Labels: *Technical Issue, Billing, Authentication, General Inquiry*  
+- Extracted **Top 3 probable tags** per ticket  
+- Saved predictions as `ticket_predictions.csv`  
+
+**Skills Gained:** Prompt Engineering, LLM-based Classification, Few-Shot Learning  
+
+---
 
