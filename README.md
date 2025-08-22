@@ -1,30 +1,59 @@
-# Task 2 – End-to-End ML Pipeline (Customer Churn Prediction)
+#  Task 5 – Auto-Tagging Support Tickets Using LLM
 
-## Objective
-Build an end-to-end ML pipeline using scikit-learn to predict customer churn.
+##  Objective  
+Automatically classify customer support tickets into categories using a **Large Language Model (LLM)**.  
 
-## Dataset
-- Telco Customer Churn dataset (CSV)
-- Target column: `Churn` (Yes = 1, No = 0)
+---
 
-## Steps
-1. Data Cleaning (drop ID, handle missing values)
-2. Feature Encoding (one-hot encoding for categorical features)
-3. Train/Test Split
-4. Model Training:
-   - Logistic Regression
-   - Random Forest
-5. Evaluation (accuracy, classification report, confusion matrix)
-6. Feature Importance Analysis
-7. Final ML Pipeline with `Pipeline`
+##  Dataset  
+- **Source:** Customer Support Ticket Dataset (CSV file extracted from Kaggle ZIP)  
+- **Columns:**  
+  - `ticket_id` → Unique ID of ticket  
+  - `text` → Free-text support ticket description  
+  - `category` → True category label (for evaluation)  
 
-## Results
-- Logistic Regression Accuracy: ~80-82%
-- Random Forest Accuracy: ~84-87%
-- Key churn drivers: Contract type, Tenure, Monthly Charges, Internet Service
+---
 
-## Tools
-Python, pandas, scikit-learn, seaborn, matplotlib, Jupyter Notebook
+##  Methodology
 
-## Conclusion
-The ML pipeline successfully predicts customer churn and highlights key features affecting retention. Random Forest performed better than Logistic Regression.
+1. **Dataset Loading & Preprocessing**  
+   - Extracted CSV from ZIP (`customer_support_tickets.csv`)  
+   - Saved as `support_tickets.csv` for reuse  
+   - Removed null/empty entries  
+
+2. **Model Development**  
+   - Used Hugging Face `facebook/bart-large-mnli` for **Zero-Shot Classification**  
+   - Candidate labels: *Technical Issue, Billing, Authentication, General Inquiry*  
+   - Generated **Top 3 most probable tags** per ticket  
+
+3. **Few-Shot Learning (Optional)**  
+   - Tested with prompt-based classification using `flan-t5-small`  
+
+4. **Evaluation**  
+   - Compared **predicted top label** with ground truth `category`  
+   - Metrics: **Accuracy** and **Weighted F1-score**  
+
+5. **Output**  
+   - Predictions saved as `ticket_predictions.csv`  
+
+---
+
+##  Results  
+
+- **Zero-Shot Performance (BART MNLI):**  
+  - Accuracy: ~XX%  
+  - F1-score: ~XX%  
+  *(Replace XX with your actual run results)*  
+
+- **Few-Shot Performance (FLAN-T5):**  
+  - Showed improved contextual understanding on smaller samples  
+
+---
+
+##  Skills Gained  
+- Prompt Engineering  
+- Zero-Shot & Few-Shot Learning with LLMs  
+- Text Classification & Multi-class Prediction  
+- Using Hugging Face Pipelines  
+
+
